@@ -5,27 +5,25 @@ import { Tokens } from './types';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private _authService: AuthService){
+  constructor(private _authService: AuthService) {}
 
-    }
+  @Post('/local/signup')
+  signupLocal(@Body() dto: AuthDto): Promise<Tokens> {
+    this._authService.signupLocal(dto);
+  }
 
-    @Post('/local/signup')
-    signupLocal(@Body() dto: AuthDto): Promise<Tokens> {
-        this._authService.signupLocal(dto);
-    }
+  @Post('/local/signin')
+  signinLocal() {
+    this._authService.signinLocal();
+  }
 
-    @Post('/local/signin')
-    signinLocal() {
-        this._authService.signinLocal();
-    }
+  @Post('/logout')
+  logout() {
+    this._authService.logout();
+  }
 
-    @Post('/logout')
-    logout() {
-        this._authService.logout();
-    }
-
-    @Post('/refresh')
-    refreshTokens() {
-        this._authService.refreshTokens();
-    }
+  @Post('/refresh')
+  refreshTokens() {
+    this._authService.refreshTokens();
+  }
 }

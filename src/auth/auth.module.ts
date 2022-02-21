@@ -5,6 +5,6 @@ import { AtStrategy, RtStrategy } from './strategies';
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, AtStrategy, RtStrategy]
+  providers: [AuthService, AtStrategy, RtStrategy],
 })
 export class AuthModule {}
